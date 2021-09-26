@@ -1,5 +1,13 @@
 {
   "files": {
+    "config/websockets.js": [
+      {
+        "id": "0fa0d79b-fe6b-4be0-92a1-3c5c37160c87",
+        "line": 74,
+        "version": 966,
+        "index": 1983
+      }
+    ],
     "controllers/messages.js": [
       {
         "id": "c21b452f-8781-467f-adf6-ed433d3f8f9c",

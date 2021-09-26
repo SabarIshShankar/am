@@ -80,7 +80,14 @@ const attachWebSockets = app => {
 			}
 		})
 
+		socket.on("sending signal", payload => {
+			io.to(payload.userToSignal).emit('User joined', {signal:
+			payload.signal,
+			id: payload.callerID,
+			username: socket.userName});
+		});
 
-		
 	})
 }
+
+module.exports = attachWebSockets;
