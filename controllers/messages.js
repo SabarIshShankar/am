@@ -6,7 +6,7 @@ exports.getTranscript = async(req, res) => {
 		const meet = Meet.findById(req.body.meetID)
 		if(!meet.members.inclued(id)){
 			return res.status(401).json({
-				UNAUTHORIZED: "not part of the meeting";
+				UNAUTHORIZED: "not part of the meeting"
 			})
 		}
 		return res.status(200).json({

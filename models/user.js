@@ -1,27 +1,25 @@
 const mongoose = require('mongoose');
 
-const meetSchema = new mongoose.Schema({
-	_id:{
+const userSchema = new mongoose.Schema({
+	name: {
 		type: String,
 		required: true
 	},
-	members: [{
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'User'
-	}],
-	messages: [{
-		message: {
-			type: String,
-			required: true
-		},
-		sender: {
-			type: mongoose.Schema.Types.ObjectId,
-			required: true,
-			ref: 'User'
-		}
-	}],
-}, {
+	email: {
+		type: String,
+		required: true
+	},
+	password: {
+		type: String,
+		required: true,
+		select: false
+	},
+	meets: [{
+		type: String,
+		ref: 'Meet'
+	}]
+},
+{
 	timestamps: true
 })
-
-module.exports = mongoose.model('Meet', meetSchema)
+module.exports = mongoose.model('User', userSchema)

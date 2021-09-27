@@ -3,6 +3,6 @@ const router = express.Router();
 const MeetsController = require('../controllers/meets');
 const checkAuth = require('../middleware/check-auth');
 
-router.get('/', checkAuth, MeetsController.getPassMeetsOfUser)
+router.get('/', checkAuth, MeetsController.getPastMeetsOfUser)
 
 module.exports = router

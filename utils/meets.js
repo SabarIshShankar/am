@@ -1,5 +1,5 @@
 const Meet = require('../models/meet');
-const User = require('../models.user');
+const User = require('../models/user');
 
 exports.createMeet = async({roomId, hostID}) => {
 	try{
@@ -33,7 +33,7 @@ exports.addMember = async({roomId, userId}) => {
 			})
 		])
 	}
-	catch(err{
+	catch(err){
 		console.log(err)
-	})
+	}
 }

@@ -8,7 +8,7 @@ exports.login = async(req, res) => {
 		const user = await User.find({email: req.body.email}).select("+password").limit(1);
 		if(user.length === 0){
 			return res.status(404).json({
-				NOT_FOUND = 'doesnt exist'
+				NOT_FOUND: 'doesnt exist'
 			})
 		}
 		const invalid = await bcrypt.compare(req.body.password, user[0].password)
