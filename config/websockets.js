@@ -81,13 +81,32 @@ const attachWebSockets = app => {
 		})
 
 		socket.on("sending signal", payload => {
-			io.to(payload.userToSignal).emit('User joined', {signal:
+			io.to(payload.userToSignal).emit('user joined', {signal:
 			payload.signal,
 			id: payload.callerID,
 			username: socket.userName});
 		});
 
-	})
+		socket.on("returning signal", payload => {
+			io.to(payload.callerID).emit('receiving returned signal', {signal: payload.signal, id: socket.id});
+			});
+			
+		 socket.on("message", (message) => {
+            socket.broadcast.to(socket.roomID).emit('receive-message', { sender: socket.userName, message });
+            addMessage({
+                meetID: socket.roomID,
+                sender: socket.userName,
+                message
+            })
+        })
+
+			socket.on("disconnect", () => {
+				socket.broadcast.to(socket.roomID).emit("disconnected", {
+					id: socket.id,
+					username: socket.userName});
+			})
+		})
+		return server
 }
 
 module.exports = attachWebSockets;

@@ -44,7 +44,7 @@ exports.register = async(req, res) => {
 	try{
 		const exisitingUser = await User.find({email: req.body.email}).limit(1)
 		if(existingUser.length > 0){
-			retrun res.status(409).json({
+			return res.status(409).json({
 				message: 'Email already exisits'
 			})
 		}
