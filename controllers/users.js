@@ -23,7 +23,7 @@ exports.login = async(req, res) => {
 		res.cookie('refresh_token_video_conf', tokenpair[1], {
 			httpOnly: true,
 			sameSite: true,
-			expiers: new Date(dt.setMonth(dt.getMonth()+6)),
+			expires: new Date(dt.setMonth(dt.getMonth()+6)),
 			secure: false
 		})
 		return res.status(200).json({

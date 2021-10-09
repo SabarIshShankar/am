@@ -10,6 +10,7 @@ require('dotenv').config({
 
 const connectToDB = require('./config/db');
 const attachWebSockets = require('./config/websockets');
+
 const userRoutes = require('./routes/users');
 const meetRoutes = require('./routes/meets');
 const messageRoutes = require('./routes/messages');
